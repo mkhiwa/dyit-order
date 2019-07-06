@@ -1,0 +1,16 @@
+<main role="main">
+<h3>Welcome </h3>
+
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <h3>Admin</h3>
+    <p><%= link_to 'User count:', users_path %> <%= User.count %>  
+     ||  <%= link_to 'Admin Page', admin_users_path, class: 'btn btn-success btn-default' %></p>
+  <% else %>
+    <h3>You've signed up. <%= link_to 'Products', thankyou_path %></h3>
+  <% end %>
+<% else %>
+  <h3>Please Sign in and place your orders as well as view the status of your orders..</h3>
+  <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary btn-large' %>
+<% end %>
+</main>

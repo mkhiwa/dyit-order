@@ -1,0 +1,53 @@
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div id="productn">
+ <div id="product" class="field">
+    <%= form.label :name %>
+    <%= form.select(:name, options_for_select([['Take-Away Serviettes(E155)','Take-Away Serviettes'],['Everyday Serviettes(E95)','Everyday Serviettes'],['House-Hold Towels(E16)','House-Hold Towels']]), :prompt => "Choose your product") %>
+  </div>
+  
+<div class="field">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity,:value => 1 %>
+  </div>
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select(:status, options_for_select([['PENDING','PENDING'],['DELIVERED','DELIVERED'],['PAID','PAID']])) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.select(:price, options_for_select([['E155','155'],['E95','95'],['E16','16']])) %>
+  </div>
+
+  <div class="field">
+  
+    <%= form.hidden_field :total %>
+  </div>
+
+  <div class="field">
+   
+    <%= form.hidden_field :paid %>
+  </div>
+
+  <div class="field">
+  
+    <%= form.hidden_field :balance %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  </div>
+<% end %>

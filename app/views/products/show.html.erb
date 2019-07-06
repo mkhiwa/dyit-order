@@ -1,0 +1,47 @@
+<main role="main">
+
+<form>
+<br />
+
+
+<div class="form-group">
+  Description:<strong>  <%= @product.name %> </strong>
+</div>
+
+
+<div class="form-group">
+  Quantity:
+  <%= @product.quantity %>
+</div>
+
+<div class="form-group">
+  Status:
+  <%= @product.status %>
+</div>
+
+<div class="form-group">
+  Price:
+  <%= number_to_currency(@product.price,:unit => "E", :separator => ".", :delimiter => ",") %></font>
+</div>
+
+<div class="form-group">
+  Total: <font color="red"><%= number_to_currency(@product.subtotal,:unit => "E", :separator => ".", :delimiter => ",") %></font>
+</div>
+
+<div class="form-group">
+  Paid: <font color="green"><%= number_to_currency(@product.paid,:unit => "E", :separator => ".", :delimiter => ",") %></font>
+  
+ 
+</div>
+
+<div class="form-group">
+    Balance: <font color="red"><strong><%= number_to_currency(@product.defbalance,:unit => "E", :separator => ".", :delimiter => ",") %></font></strong>
+ 
+  
+</div>
+
+
+<%= link_to 'Back', products_path, class: 'btn-primary btn-sm' %>
+</div>
+</form>
+</main>
