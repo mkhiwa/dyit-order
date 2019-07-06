@@ -37,7 +37,7 @@ class UserDashboard < Administrate::BaseDashboard
     :products,
     :id,
     :email,
-    :encrypted_password,
+   
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

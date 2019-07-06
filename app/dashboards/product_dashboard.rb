@@ -9,6 +9,7 @@ class ProductDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     user: Field::BelongsTo,
+    name:Field::String,
     id: Field::Number,
     code: Field::String,
     description: Field::String,
@@ -32,6 +33,7 @@ class ProductDashboard < Administrate::BaseDashboard
     :user,
     :id,
     :code,
+    :status,
     :description,
   ].freeze
 
@@ -39,7 +41,7 @@ class ProductDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :user,
-    :id,
+   
     :code,
     :description,
     :status,
