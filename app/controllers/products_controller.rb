@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @products = Product.where(user: current_user) 
+    @products = Product.where(user: current_user).order("created_at DESC") 
     
   end
 

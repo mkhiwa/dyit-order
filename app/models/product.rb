@@ -11,5 +11,8 @@ before_save :defbalance
  def defbalance 
   balancesum = (price * quantity) - paid 
   self.balance = balancesum
- end	
+ end
+ 
+
+ 
 end

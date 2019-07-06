@@ -33,6 +33,7 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+
     :products,
     :id,
     :email,
@@ -42,10 +43,13 @@ class UserDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :products,
-    :id,
-    :email,
     :name,
+    
+    :products,
+    :email,
+    :id,
+    
+    
     :sign_in_count,
     :current_sign_in_at,
     :last_sign_in_at,

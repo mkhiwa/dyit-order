@@ -1,6 +1,6 @@
 <main role="main">
 
-<h1>Your Orders: <%= current_user.products.count %></h1>
+<h1>Ordered Items Total Number: <%= current_user.products.count %></h1>
 
 
 
@@ -20,7 +20,7 @@
   <tbody>
     
     <div class="pull-right"><%= link_to 'New', new_product_path, :class => 'btn-primary button-xs' %></div>
-    
+    <% running_total = 0 %>
     
     <% @products.each do |product| %>
       <tr>
@@ -32,8 +32,8 @@
         <td scope="row"><font color="red"><strong><%= number_to_currency(product.defbalance, :unit => "E", :separator => ".", :delimiter => ",") %></font></strong></td>
 
 
-        <td><%= link_to 'Show', product, :class => 'btn-success button-xs' %></td>
         
+        <% running_total = running_total + product.defbalance %>
         <% if current_user.admin? %>
         <td><%= link_to 'Edit', edit_product_path(product), :class => 'btn-primary button-xs' %></td>
         <td><%= link_to 'Destroy', product, method: :delete, :class => 'btn-danger button-xs', data: { confirm: 'Are you sure?' } %></td>
@@ -43,6 +43,6 @@
   </tbody>
 </table>
 <br>
-
+<h4 class="pull-right">Total: <%= number_to_currency(running_total, :unit => "E", :separator => ".", :delimiter => ",") %>
 
 </main>
